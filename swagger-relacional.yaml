@@ -2,16 +2,17 @@ openapi: 3.0.0
 info:
   title: API Relacional - Hunter x Hunter (PostgreSQL Neon)
   version: 1.0.0
-  description: >-
-    CRUD de personajes almacenados en PostgreSQL (Neon). Campos:
-    id, nombre, edad, altura, peso, imageurl.
+  description: >
+    API desplegada en Render. CRUD de personajes almacenados en PostgreSQL (Neon).
+    Campos: id, nombre, edad, altura, peso, imageurl.
+
 servers:
-  - url: http://localhost:8080
-    description: Servidor local (Relacional)
+  - url: https://hunters-relacional.onrender.com
+    description: Servidor Render (Producción)
 
 tags:
   - name: Personajes
-    description: CRUD sobre personajes en PostgreSQL (Neon)
+    description: CRUD sobre personajes en base de datos Neon (PostgreSQL)
 
 paths:
   /api/personajes:
@@ -72,6 +73,7 @@ paths:
           required: true
           schema:
             type: integer
+            example: 1
       responses:
         "200":
           description: Personaje encontrado
@@ -93,6 +95,7 @@ paths:
           required: true
           schema:
             type: integer
+            example: 1
       requestBody:
         required: true
         content:
@@ -117,6 +120,7 @@ paths:
           required: true
           schema:
             type: integer
+            example: 1
       responses:
         "200":
           description: Personaje eliminado correctamente
